@@ -14,7 +14,7 @@ import com.ats.assignmentservice.entity.AssignmentStatus;
 @Repository
 public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
 
-	Optional<Assignment> findByAssetIdAndStatus(Long assetId, AssignmentStatus status);
+	
 
     Page<Assignment> findByEmployeeId(Long employeeId, Pageable pageable);
 
@@ -29,5 +29,9 @@ public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
     Page<Assignment> findByEmployeeIdAndAssetIdAndStatusAndDueDateBefore(Long employeeId, Long assetId, AssignmentStatus status, LocalDate dueDate, Pageable pageable);
 
     Page<Assignment> findByDueDateBeforeAndStatus(LocalDate dueDate, AssignmentStatus status, Pageable pageable);
+    
+//    Optional<Assignment> findByAssetIdAndStatus(Long assetId, String status);
+    
+    Optional<Assignment> findByAssetIdAndStatus(Long assetId, AssignmentStatus status);
     
 }

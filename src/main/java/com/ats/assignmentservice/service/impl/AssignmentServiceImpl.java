@@ -137,4 +137,25 @@ public class AssignmentServiceImpl implements AssignmentService {
 
         return page.map(a -> modelMapper.map(a, AssignmentResponse.class));
     }
+
+	@Override
+	public AssignmentResponse getAssignmentByAssetId(Long assetId) {
+		 Assignment assignment = assignmentRepository
+	                .findByAssetIdAndStatus(assetId, AssignmentStatus.ASSIGNED) // fetch only currently assigned
+	                .orElse(null);
+
+	        if (assignment == null) {
+	            return null; // or throw exception if preferred
+	        
+	}
+	        return AssignmentResponse.builder()
+	                .id(assignment.getId())
+	                .assetId(assignment.getAssetId())
+	                .employeeId(assignment.getEmployeeId())
+	                .assignedDate(assignment.getAssignedDate())
+	                .dueDate(assignment.getDueDate())
+	                .status(assignment.getStatus().name())
+	                .notes(assignment.getNotes())
+	                .build();
+}
 }

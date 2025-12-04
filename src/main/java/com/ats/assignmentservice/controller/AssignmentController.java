@@ -85,4 +85,10 @@ public class AssignmentController {
 
         return ResponseEntity.ok(response);
     }
+    
+    @GetMapping("/asset/{assetId}")
+    public ResponseEntity<AssignmentResponse> getAssignmentByAssetId(@PathVariable Long assetId) {
+        AssignmentResponse assignment = assignmentService.getAssignmentByAssetId(assetId);
+        return ResponseEntity.ok(assignment);
+    }
 }

@@ -18,4 +18,6 @@ public interface AssignmentService {
 
 	Page<AssignmentResponse> listAssignments(Long employeeId, Long assetId, String status, boolean overdue,
 			Pageable pageable);
+	
+	public AssignmentResponse getAssignmentByAssetId(Long assetId);
 }

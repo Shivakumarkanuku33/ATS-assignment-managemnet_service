@@ -1,6 +1,10 @@
 package com.ats.assignmentservice.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -14,6 +18,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "notes"
 })
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AssignmentResponse {
 	private Long id;
 	private Long assetId;
